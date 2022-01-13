@@ -7,7 +7,8 @@ interface AuthProviderProps {
 }
 
 interface SignInProps{
-
+  email: string;
+  password:string;
 }
 
 interface AuthProviderData {
@@ -44,7 +45,7 @@ export const AuthProvider = ({children}:AuthProviderProps) => {
 
     setAuthToken("");
 
-    navegate("/login");
+    navegate("/");
   };
 
   return(<AuthContext.Provider value = {{authToken, logout, signIn}}>

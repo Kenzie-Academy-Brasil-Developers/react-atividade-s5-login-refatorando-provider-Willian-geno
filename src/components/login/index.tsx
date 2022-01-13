@@ -1,16 +1,14 @@
-import { Conteiner } from "./styled";
+import { Conteiner,CardLogin } from "./styled";
 import { useForm, UseFormProps } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useAuth} from "../../Providers/Auth"
 
+
 interface HandleProps {
   email:string;
   password:string;
 }
-
-
-
 const Login = () => {
 
   
@@ -31,12 +29,19 @@ const Login = () => {
       signIn(data)
   }
   return <Conteiner>
-    <form onSubmit={handleSubmit(hadle)}>
-      <input placeholder="digite seu email" {...register("email")}/>
-      <input placeholder="digite sua senha" {...register("password")}/>
-      <button type = "submit">Enviar</button>
-
-    </form>
+    <CardLogin> 
+      <form onSubmit={handleSubmit(hadle)}>
+        <div>
+          <label>Email</label>
+          <input placeholder="Digite seu email" {...register("email")}/>
+        </div>
+        <div>
+          <label>Senha</label>
+          <input placeholder="Digite sua senha" {...register("password")} type = "password"/>
+        </div>
+        <button type = "submit">Enviar</button>
+      </form>
+    </CardLogin>
 
   </Conteiner>
 };
